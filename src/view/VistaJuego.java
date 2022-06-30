@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -23,6 +24,12 @@ public class VistaJuego extends javax.swing.JPanel {
         panelJugador.add(tableroJugador, BorderLayout.CENTER);
         panelMaquina.add(tableroMaquina, BorderLayout.CENTER);
     }
+    
+    public void clearView() {
+        textLog.setText("");
+        tableroJugador.limpiarTablero();
+        tableroMaquina.limpiarTablero();
+    }
 
     public JButton getBotonAtacar() {
         return botonAtacar;
@@ -34,6 +41,11 @@ public class VistaJuego extends javax.swing.JPanel {
     
     public void setModelJugador(TipoCeldaTablero [][] tableroJugador) {
         this.tableroJugador.setModelJugador(tableroJugador);
+    }
+    
+    public void setKeyListener(KeyListener k) {
+        inputX.addKeyListener(k);
+        inputY.addKeyListener(k);
     }
 
     public JButton getBotonAtras() {

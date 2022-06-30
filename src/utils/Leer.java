@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Leer {
 
     public static String leerPuntaje() throws IOException {
-        File file = new File(Escribir.RUTA_PUNTAJE + "puntaje.txt");
+        File file = new File(Const.PATH_SCORE);
 
         if (!file.exists()) {
             file.createNewFile();
@@ -16,13 +16,13 @@ public class Leer {
         StringBuilder sb = new StringBuilder();
 
         sb.append(String.format("%12s %12s %12s %12s\n", "Nombre", "Puntaje", "Ataques", "Errores"));
-        Scanner sc = new Scanner(file);
-
-        while (sc.hasNextLine()) {
-            String[] params = sc.nextLine().split(",");
-            sb.append(String.format("%12s %12s %12s %12s\n", params[0], params[1], params[2], params[3]));
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                String[] params = sc.nextLine().split(",");
+                sb.append(String.format("%12s %14s %15s %16s\n", params[0], params[1], params[2], params[3]));
+            }
         }
-
+        
         return sb.toString();
     }
 }

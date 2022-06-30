@@ -2,6 +2,7 @@ package model.tablero;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.barco.Barco;
 
 public class Tablero {
@@ -20,7 +21,7 @@ public class Tablero {
             }
         }
     }
-    
+
     public void limpiarTablero() {
         barcos.clear();
         for (int i = 0; i < TAMANIO; i++) {
@@ -31,10 +32,10 @@ public class Tablero {
     }
 
     public boolean esValido(Barco barco) {
-        if(barco == null) {
+        if (barco == null) {
             return false;
         }
-        
+
         if (barco.getInicio().y < 0 || barco.getInicio().y >= TAMANIO) {
             return false;
         }
@@ -47,12 +48,12 @@ public class Tablero {
             return false;
         }
 
-        if(barco.getFinal().y < 0 || barco.getFinal().y >= TAMANIO){
+        if (barco.getFinal().y < 0 || barco.getFinal().y >= TAMANIO) {
             return false;
         }
-        
-        for (Point parte: barco.getPartes()) {
-            if(tablero[parte.x][parte.y].equals(TipoCeldaTablero.BARCO)){
+
+        for (Point parte : barco.getPartes()) {
+            if (tablero[parte.x][parte.y].equals(TipoCeldaTablero.BARCO)) {
                 return false;
             }
         }
@@ -71,7 +72,7 @@ public class Tablero {
     public boolean estaTerminado() {
         for (int i = 0; i < TAMANIO; i++) {
             for (int j = 0; j < TAMANIO; j++) {
-                if (tablero[i][j] == TipoCeldaTablero.BARCO) {
+                if (tablero[i][j].equals(TipoCeldaTablero.BARCO)) {
                     return false;
                 }
             }
@@ -93,6 +94,9 @@ public class Tablero {
             for (Barco barco : barcos) {
                 if (barco.evaluarDisparo(x, y)) {
                     tablero[x][y] = TipoCeldaTablero.DISPARO;
+                    if (barco.estaUndido()) {
+                        JOptionPane.showMessageDialog(null, "Barco undido! Exitosamente!");
+                    }
                     return true;
                 }
             }

@@ -10,6 +10,10 @@ public class VistaIncio extends javax.swing.JPanel {
     public VistaIncio() {
         initComponents();
     }
+    
+    public void clearView(){
+        textNombre.setText("");
+    }
 
  
     @SuppressWarnings("unchecked")

@@ -43,6 +43,10 @@ public class VistaConfiguracion extends javax.swing.JPanel {
     }
 
     public void limpiarTablero() {
+        textPortaAviones.setText("Porta Aviones(5): " + Barco.CANTIDAD_POR_BARCO);
+        textAcorazado.setText("Acorazado(4): " + Barco.CANTIDAD_POR_BARCO);
+        textSubmarino.setText("Submarino(3): " + Barco.CANTIDAD_POR_BARCO);
+        textDestructor.setText("Destructor(2): " + Barco.CANTIDAD_POR_BARCO);
         inputX.setText("");
         inputY.setText("");
         tablero.limpiarTablero();

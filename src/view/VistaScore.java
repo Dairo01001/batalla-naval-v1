@@ -19,7 +19,7 @@ public class VistaScore extends javax.swing.JPanel {
     }
     
     public void setPuntajes(String text) {
-        textPuntajes.append(text);
+        textPuntajes.setText(text);
     }
     
     @SuppressWarnings("unchecked")

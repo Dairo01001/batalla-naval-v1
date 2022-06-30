@@ -1,15 +1,13 @@
 package model;
 
 import java.awt.Point;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import model.barco.Barco;
 import model.maquina.Maquina;
 import model.player.Player;
-import utils.Escribir;
+import utils.Write;
 
 public class Game {
 
@@ -49,20 +47,34 @@ public class Game {
     public void crearTemporizador(JLabel display) {
         if (temporizador == null) {
             temporizador = new Temporizador(display);
+            temporizador.start();
         }
     }
 
     public boolean jugadorAtacaMaquina(int x, int y) {
         if (jugador.disparoValidoHistorial(x, y)) {
             textLog.append("Jugador ataca en [" + x + "," + y + "]\n");
-            maquina.getTablero().hacerDisparo(x, y);
+            if (maquina.getTablero().hacerDisparo(x, y)) {
+                JOptionPane.showMessageDialog(null, "Has acertado el disparo!");
+            }
             return true;
         }
         return false;
     }
 
     public boolean JuegoTerminado() {
-        return maquina.getTablero().estaTerminado() || jugador.juegoTerminado();
+        if (maquina.getTablero().estaTerminado()) {
+            JOptionPane.showMessageDialog(null, jugador.getFormatShowPuntaje(), "Resultado!", JOptionPane.INFORMATION_MESSAGE);
+
+            return true;
+        }
+
+        if (jugador.juegoTerminado()) {
+            JOptionPane.showMessageDialog(null, "La Maquina te ha ganado!");
+            return true;
+        }
+
+        return false;
     }
 
     public void maquinaAtacaJugador() {
@@ -75,20 +87,21 @@ public class Game {
     }
 
     public void startTemporizador() {
-        if (temporizador.isInterrupted()) {
-            temporizador.start();
-        }
+        temporizador.reanudar();
     }
 
     public void stopTemporizador() {
-        temporizador.interrupt();
+        temporizador.pausa();
+    }
+
+    public void clear() {
+        stopTemporizador();
+        temporizador = null;
+        jugador.inicializar();
+        maquina.inicializar();
     }
 
     public void guardarPuntajes() {
-        try {
-            Escribir.escribirPuntaje(jugador);
-        } catch (IOException ex) {
-            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Write.writeLineScore(jugador.getFormatoPuntaje() + "\n");
     }
 }

@@ -105,11 +105,18 @@ public class Player {
     public String getFormatoPuntaje() {
         return this.nombre + "," + this.puntaje + "," + this.numeroAtaques + "," + this.errores;
     }
-    
+
+    public String getFormatShowPuntaje() {
+        return "Nombre: " + nombre + "\n"
+                + "Puntaje: " + puntaje + "\n"
+                + "Numero ataques: " + numeroAtaques + "\n"
+                + "Numero Errores: " + errores;
+    }
+
     public boolean juegoTerminado() {
         return this.tablero.estaTerminado();
     }
-    
+
     public void inicializar() {
         limpiarTablero();
         historialDisparos = new StringBuilder();

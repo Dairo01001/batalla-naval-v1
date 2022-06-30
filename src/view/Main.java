@@ -5,6 +5,8 @@ import java.awt.CardLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,9 +68,15 @@ public class Main extends JFrame {
 
         vistaJuego = new VistaJuego();
         vistaJuego.getBotonAtras().addActionListener((ActionEvent ae) -> {
-            paneles.show(panelPrincipal, "config");
+            if (seguroDeseasSalir()) {
+                vistaJuego.clearView();
+                game.clear();
+                vistaConfiguracion.limpiarTablero();
+                paneles.show(panelPrincipal, "inicio");
+            }
         });
         vistaJuego.getBotonAtacar().addActionListener(new AtacarListener());
+        vistaJuego.setKeyListener(new PressEnter());
 
         vistaScore = new VistaScore();
         vistaScore.getBotonAtras().addActionListener(new AtrasListener());
@@ -85,6 +93,11 @@ public class Main extends JFrame {
         add(panelPrincipal, BorderLayout.CENTER);
     }
 
+    private boolean seguroDeseasSalir() {
+        int resul = JOptionPane.showConfirmDialog(panelPrincipal, "Seguro deseas salir!?");
+        return resul == 0;
+    }
+    
     private class JugarListener implements ActionListener {
 
         @Override
@@ -94,15 +107,61 @@ public class Main extends JFrame {
             } else {
                 game.getJugador().setNombre(vistaIncio.getNombre());
 
+                vistaIncio.clearView();
+
                 vistaConfiguracion.setNombreJugador(game.getJugador().getNombre());
                 vistaConfiguracion.setContadorErrores(game.getJugador().getErrores());
 
                 vistaJuego.setNombreJugador(game.getJugador().getNombre());
                 vistaJuego.setModelJugador(game.getJugador().getModelTablero());
-                
+
                 game.setTextLog(vistaJuego.getTextLog());
                 paneles.show(panelPrincipal, "config");
             }
+        }
+    }
+
+    private class PressEnter implements KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent ke) {
+        }
+
+        @Override
+        public void keyPressed(KeyEvent ke) {
+            if (KeyEvent.VK_ENTER == ke.getKeyCode()) {
+                Atack();
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent ke) {
+        }
+
+    }
+
+    private void Atack() {
+        if (vistaJuego.verificarEntradas()) {
+            vistaJuego.setContadorAtaques(game.getJugador().contarAtaques());
+            if (game.jugadorAtacaMaquina(vistaJuego.getInputX(), vistaJuego.getInputY())) {
+                vistaJuego.setModelMaquina(game.getMaquina().getModelTablero());
+                if (game.JuegoTerminado()) {
+                    game.guardarPuntajes();
+                    vistaJuego.clearView();
+                    vistaConfiguracion.limpiarTablero();
+                    game.clear();
+                    paneles.show(panelPrincipal, "inicio");
+                } else {
+                    game.maquinaAtacaJugador();
+                    vistaJuego.setModelJugador(game.getJugador().getModelTablero());
+                }
+            } else {
+                game.getJugador().contarErrores();
+                JOptionPane.showMessageDialog(panelPrincipal, "Ya has hecho ese atque!");
+            }
+        } else {
+            game.getJugador().contarErrores();
+            JOptionPane.showMessageDialog(panelPrincipal, "Entrada invalida!");
         }
     }
 
@@ -110,27 +169,7 @@ public class Main extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            if (vistaJuego.verificarEntradas()) {
-                vistaJuego.setContadorAtaques(game.getJugador().contarAtaques());
-                if (game.jugadorAtacaMaquina(vistaJuego.getInputX(), vistaJuego.getInputY())) {
-                    vistaJuego.setModelMaquina(game.getMaquina().getModelTablero());
-                    if(game.JuegoTerminado()) {
-                        if(game.getJugador().juegoTerminado()) {
-                            JOptionPane.showMessageDialog(panelPrincipal, "Has Perdido!");
-                        } else {
-                            JOptionPane.showMessageDialog(panelPrincipal, "Le has Ganado a la Maquina!");
-                        }
-                        game.guardarPuntajes();
-                    }
-                    game.maquinaAtacaJugador();
-                    vistaJuego.setModelJugador(game.getJugador().getModelTablero());
-                } else {
-                    JOptionPane.showMessageDialog(panelPrincipal, "Ya has hecho ese atque!");
-                }
-            } else {
-                game.getJugador().contarErrores();
-                JOptionPane.showMessageDialog(panelPrincipal, "Entrada invalida!");
-            }
+            Atack();
         }
     }
 

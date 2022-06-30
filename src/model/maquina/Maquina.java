@@ -1,56 +1,58 @@
 package model.maquina;
 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import model.barco.Barco;
 import model.tablero.Tablero;
 import model.tablero.TipoCeldaTablero;
 
 public class Maquina {
-
+    
     private Tablero tablero;
     private final Random random;
-    private StringBuilder historialDisparos;
+    private int index;
+    private final ArrayList<Point> disparos;
     private final int contarBarcosCreados[];
-
+    
     public Maquina() {
         random = new Random();
         tablero = new Tablero();
-        contarBarcosCreados = new int[Barco.CANTIDAD_DE_BARCOS];
-        for (int i = 0; i < Barco.CANTIDAD_DE_BARCOS; i++) {
-            contarBarcosCreados[i] = Barco.CANTIDAD_POR_BARCO;
+        
+        disparos = new ArrayList<>();
+        for (int i = 0; i < Tablero.TAMANIO; i++) {
+            for (int j = 0; j < Tablero.TAMANIO; j++) {
+                disparos.add(new Point(i, j));
+            }
         }
+    
+        
+        contarBarcosCreados = new int[Barco.CANTIDAD_DE_BARCOS];
+        
+        index = 0;
     }
     
-    public  int[] getBarcosCreados() {
+    public int[] getBarcosCreados() {
         return contarBarcosCreados;
     }
-
+    
     public Point atacar() {
-        int x = random.nextInt(Tablero.TAMANIO);
-        int y = random.nextInt(Tablero.TAMANIO);
-
-        while (historialDisparos.toString().contains("[" + x + "," + y + "]")) {
-            x = random.nextInt(Tablero.TAMANIO);
-            y = random.nextInt(Tablero.TAMANIO);
-        }
-
-        historialDisparos.append("[").append(x).append(",").append(y).append("]");
-        return new Point(x, y);
+        return disparos.get(index++);
     }
-
+    
     public void llenarTablero() {
-        int index = 0;
-
+        int i = 0;
+        
         while (!tablero.estaLleno()) {
-            if (contarBarcosCreados[index] > 0) {
-                Barco barco = Barco.crearBarco(Barco.TIPOS_BARCO[index], random.nextInt(10) % 2, new Point(random.nextInt(Tablero.TAMANIO), random.nextInt(Tablero.TAMANIO)));
+            if (contarBarcosCreados[i] > 0) {
+                Barco barco = Barco.crearBarco(Barco.TIPOS_BARCO[i], random.nextInt(10) % 2, new Point(random.nextInt(Tablero.TAMANIO), random.nextInt(Tablero.TAMANIO)));
                 if (tablero.esValido(barco)) {
                     tablero.agregarBarco(barco);
-                    contarBarcosCreados[index]--;
+                    contarBarcosCreados[i]--;
                 }
             } else {
-                index++;
+                i++;
             }
         }
     }
@@ -58,13 +60,21 @@ public class Maquina {
     public TipoCeldaTablero[][] getModelTablero() {
         return tablero.getTablero();
     }
-
+    
+    public void clearCountBarcos() {
+        for (int i = 0; i < Barco.CANTIDAD_DE_BARCOS; i++) {
+            contarBarcosCreados[i] = Barco.CANTIDAD_POR_BARCO;
+        }
+    }
+    
     public void inicializar() {
-        historialDisparos = new StringBuilder();
-        tablero = new Tablero();
+        index = 0;
+        Collections.shuffle(disparos);
+        clearCountBarcos();
+        tablero.limpiarTablero();
         llenarTablero();
     }
-
+    
     public Tablero getTablero() {
         return tablero;
     }

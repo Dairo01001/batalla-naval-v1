@@ -17,6 +17,10 @@ public class VistaJuego extends javax.swing.JPanel {
         initTableros();
     }
 
+    public JButton getBtnHelp() {
+        return btnHelp;
+    }
+
     private void initTableros() {
         tableroJugador = new VistaTablero();
         tableroMaquina = new VistaTablero();
@@ -101,6 +105,7 @@ public class VistaJuego extends javax.swing.JPanel {
         textNombre = new javax.swing.JLabel();
         textAtaques = new javax.swing.JLabel();
         textTiempo = new javax.swing.JLabel();
+        btnHelp = new javax.swing.JButton();
         panelSur = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         textX = new javax.swing.JLabel();
@@ -128,6 +133,9 @@ public class VistaJuego extends javax.swing.JPanel {
         textTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textTiempo.setText("1:3");
         panelNorte.add(textTiempo);
+
+        btnHelp.setText("help");
+        panelNorte.add(btnHelp);
 
         add(panelNorte, java.awt.BorderLayout.PAGE_START);
 
@@ -159,7 +167,7 @@ public class VistaJuego extends javax.swing.JPanel {
 
         add(panelSur, java.awt.BorderLayout.PAGE_END);
 
-        panelCentro.setLayout(new java.awt.GridLayout());
+        panelCentro.setLayout(new java.awt.GridLayout(1, 0));
 
         panelJugador.setBorder(javax.swing.BorderFactory.createTitledBorder("Jugador"));
         panelJugador.setLayout(new java.awt.BorderLayout());
@@ -176,6 +184,7 @@ public class VistaJuego extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAtacar;
     private javax.swing.JButton botonAtras;
+    private javax.swing.JButton btnHelp;
     private javax.swing.JTextField inputX;
     private javax.swing.JTextField inputY;
     private javax.swing.JPanel jPanel1;

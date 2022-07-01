@@ -17,6 +17,10 @@ public class VistaConfiguracion extends javax.swing.JPanel {
         agregarTablero();
     }
 
+    public JButton getBtnHelp() {
+        return btnHelp;
+    }
+
     private void agregarTablero() {
         tablero = new VistaTablero();
         panelCenter.add(tablero, BorderLayout.CENTER);
@@ -138,6 +142,7 @@ public class VistaConfiguracion extends javax.swing.JPanel {
         textContadorErrores = new javax.swing.JLabel();
         panelCenter = new javax.swing.JPanel();
         panelOpciones = new javax.swing.JPanel();
+        btnHelp = new javax.swing.JButton();
         textPortaAviones = new javax.swing.JLabel();
         textAcorazado = new javax.swing.JLabel();
         textSubmarino = new javax.swing.JLabel();
@@ -179,7 +184,10 @@ public class VistaConfiguracion extends javax.swing.JPanel {
 
         panelCenter.setLayout(new java.awt.BorderLayout());
 
-        panelOpciones.setLayout(new java.awt.GridLayout(11, 1));
+        panelOpciones.setLayout(new java.awt.GridLayout(12, 1));
+
+        btnHelp.setText("help");
+        panelOpciones.add(btnHelp);
 
         textPortaAviones.setText("Porta Aviones(5)");
         panelOpciones.add(textPortaAviones);
@@ -232,6 +240,7 @@ public class VistaConfiguracion extends javax.swing.JPanel {
     private javax.swing.JButton botonAtras;
     private javax.swing.JButton botonComenzar;
     private javax.swing.JButton botonLimpiarTablero;
+    private javax.swing.JButton btnHelp;
     private javax.swing.JTextField inputX;
     private javax.swing.JTextField inputY;
     private javax.swing.JPanel panelCenter;

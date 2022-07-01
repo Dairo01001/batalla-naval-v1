@@ -15,7 +15,10 @@ public class VistaIncio extends javax.swing.JPanel {
         textNombre.setText("");
     }
 
- 
+    public JButton getBtnHelp() {
+        return btnHelp;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -28,6 +31,7 @@ public class VistaIncio extends javax.swing.JPanel {
         botonSalir = new javax.swing.JButton();
         buttonPuntajes = new javax.swing.JButton();
         botonJugar = new javax.swing.JButton();
+        btnHelp = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -54,6 +58,8 @@ public class VistaIncio extends javax.swing.JPanel {
 
         botonJugar.setText("Jugar");
 
+        btnHelp.setText("help");
+
         javax.swing.GroupLayout panelCentroLayout = new javax.swing.GroupLayout(panelCentro);
         panelCentro.setLayout(panelCentroLayout);
         panelCentroLayout.setHorizontalGroup(
@@ -74,13 +80,17 @@ public class VistaIncio extends javax.swing.JPanel {
                                 .addGap(9, 9, 9))))
                     .addGroup(panelCentroLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(botonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(botonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCentroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnHelp)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         panelCentroLayout.setVerticalGroup(
             panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCentroLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addComponent(btnHelp)
+                .addGap(14, 14, 14)
                 .addGroup(panelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -122,6 +132,7 @@ public class VistaIncio extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonJugar;
     private javax.swing.JButton botonSalir;
+    private javax.swing.JButton btnHelp;
     private javax.swing.JButton buttonPuntajes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelTitulo;

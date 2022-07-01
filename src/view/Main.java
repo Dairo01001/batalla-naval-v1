@@ -17,6 +17,7 @@ import model.Game;
 import model.maquina.Maquina;
 import model.player.Player;
 import utils.Leer;
+import utils.Open;
 
 public class Main extends JFrame {
 
@@ -50,6 +51,9 @@ public class Main extends JFrame {
             }
             paneles.show(panelPrincipal, "puntaje");
         });
+        vistaIncio.getBtnHelp().addActionListener(l -> {
+            Open.openPdf();
+        });
 
         vistaConfiguracion = new VistaConfiguracion();
         vistaConfiguracion.getBotonComenzar().addActionListener((ActionEvent ae) -> {
@@ -65,6 +69,9 @@ public class Main extends JFrame {
         vistaConfiguracion.getBotonAtras().addActionListener(new AtrasListener());
         vistaConfiguracion.getBotonAgregar().addActionListener(new AgregarBarcoListener());
         vistaConfiguracion.getBotonLimpiarTablero().addActionListener(new LimpiarTableroPlayerListener());
+        vistaConfiguracion.getBtnHelp().addActionListener(l -> {
+            Open.openPdf();
+        });
 
         vistaJuego = new VistaJuego();
         vistaJuego.getBotonAtras().addActionListener((ActionEvent ae) -> {
@@ -77,10 +84,16 @@ public class Main extends JFrame {
         });
         vistaJuego.getBotonAtacar().addActionListener(new AtacarListener());
         vistaJuego.setKeyListener(new PressEnter());
+        vistaJuego.getBtnHelp().addActionListener(l -> {
+            Open.openPdf();
+        });
 
         vistaScore = new VistaScore();
         vistaScore.getBotonAtras().addActionListener(new AtrasListener());
         vistaScore.getBotonSalir().addActionListener(new SalirListener());
+        vistaScore.getBtnHelp().addActionListener(l -> {
+            Open.openPdf();
+        });
 
         paneles = new CardLayout();
         panelPrincipal = new JPanel(paneles);
@@ -97,7 +110,7 @@ public class Main extends JFrame {
         int resul = JOptionPane.showConfirmDialog(panelPrincipal, "Seguro deseas salir!?");
         return resul == 0;
     }
-    
+
     private class JugarListener implements ActionListener {
 
         @Override

@@ -21,6 +21,10 @@ public class VistaScore extends javax.swing.JPanel {
     public void setPuntajes(String text) {
         textPuntajes.setText(text);
     }
+
+    public JButton getBtnHelp() {
+        return btnHelp;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -31,6 +35,7 @@ public class VistaScore extends javax.swing.JPanel {
         textPuntajes = new javax.swing.JTextArea();
         botonAtras = new javax.swing.JButton();
         botonSalir = new javax.swing.JButton();
+        btnHelp = new javax.swing.JButton();
 
         textTitulo.setFont(new java.awt.Font("Fira Code Medium", 0, 24)); // NOI18N
         textTitulo.setText("Puntajes");
@@ -42,6 +47,8 @@ public class VistaScore extends javax.swing.JPanel {
         botonAtras.setText("Atras");
 
         botonSalir.setText("Salir");
+
+        btnHelp.setText("help");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,17 +63,25 @@ public class VistaScore extends javax.swing.JPanel {
                                 .addComponent(botonAtras)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botonSalir))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(123, 123, 123)
-                        .addComponent(textTitulo)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                        .addComponent(textTitulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                        .addComponent(btnHelp)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(textTitulo)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(textTitulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnHelp)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
@@ -81,6 +96,7 @@ public class VistaScore extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAtras;
     private javax.swing.JButton botonSalir;
+    private javax.swing.JButton btnHelp;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea textPuntajes;
     private javax.swing.JLabel textTitulo;

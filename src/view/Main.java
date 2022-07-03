@@ -238,6 +238,7 @@ public class Main extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
+            vistaConfiguracion.limpiarTablero();
             paneles.show(panelPrincipal, "inicio");
         }
     }

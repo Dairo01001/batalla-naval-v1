@@ -158,16 +158,18 @@ public class Main extends JFrame {
             vistaJuego.setContadorAtaques(game.getJugador().contarAtaques());
             if (game.jugadorAtacaMaquina(vistaJuego.getInputX(), vistaJuego.getInputY())) {
                 vistaJuego.setModelMaquina(game.getMaquina().getModelTablero());
+                
+                game.maquinaAtacaJugador();
+                vistaJuego.setModelJugador(game.getJugador().getModelTablero());
+                
                 if (game.JuegoTerminado()) {
                     game.guardarPuntajes();
                     vistaJuego.clearView();
                     vistaConfiguracion.limpiarTablero();
                     game.clear();
                     paneles.show(panelPrincipal, "inicio");
-                } else {
-                    game.maquinaAtacaJugador();
-                    vistaJuego.setModelJugador(game.getJugador().getModelTablero());
                 }
+
             } else {
                 game.getJugador().contarErrores();
                 JOptionPane.showMessageDialog(panelPrincipal, "Ya has hecho ese atque!");

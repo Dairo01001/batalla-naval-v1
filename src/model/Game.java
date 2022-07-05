@@ -54,8 +54,10 @@ public class Game {
     public boolean jugadorAtacaMaquina(int x, int y) {
         if (jugador.disparoValidoHistorial(x, y)) {
             textLog.append("Jugador ataca en [" + x + "," + y + "]\n");
+            jugador.contarAtaques();
             if (maquina.getTablero().hacerDisparo(x, y)) {
                 JOptionPane.showMessageDialog(null, "Has acertado el disparo!");
+                jugador.aumentarPuntaje();
             }
             return true;
         }

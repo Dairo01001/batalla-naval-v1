@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +39,7 @@ public class Main extends JFrame {
 
     private void initComponents() {
         setLayout(new BorderLayout());
+        setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         vistaIncio = new VistaIncio();
@@ -246,7 +248,7 @@ public class Main extends JFrame {
     }
 
     public static void main(String[] args) {
-        Main ventana = new Main();
+        Main ventana = new Main(); 
         ventana.pack();
         ventana.setVisible(true);
     }

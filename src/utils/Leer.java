@@ -15,7 +15,7 @@ public class Leer {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append(String.format("%12s %12s %12s %12s\n", "Nombre", "Puntaje", "Ataques", "Errores"));
+        sb.append(String.format("%12s %12s %12s %12s \n", "Nombre", "Puntaje", "Ataques", "Errores"));
         try (Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
                 String[] params = sc.nextLine().split(",");

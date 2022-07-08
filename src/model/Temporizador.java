@@ -49,7 +49,7 @@ public class Temporizador extends Thread {
                 minutos++;
             }
             
-            display.setText("T (m:s): " + minutos + ":" + segundos);
+            display.setText("Tiempo: " + minutos + ":" + segundos);
         }
     }
 }

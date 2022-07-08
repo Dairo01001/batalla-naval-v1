@@ -115,10 +115,10 @@ public class VistaConfiguracion extends javax.swing.JPanel {
     }
 
     public void setBarcosAgregados(int[] barcosAgreagos) {
-        textPortaAviones.setText("Porta Aviones(5) :" + barcosAgreagos[0]);
-        textAcorazado.setText("Acorazado(4): " + barcosAgreagos[1]);
-        textSubmarino.setText("Submarino(3): " + barcosAgreagos[2]);
-        textDestructor.setText("Destructor(2): " + barcosAgreagos[3]);
+        textPortaAviones.setText("Porta Aviones (5): " + barcosAgreagos[0]);
+           textAcorazado.setText("Acorazado     (4): " + barcosAgreagos[1]);
+           textSubmarino.setText("Submarino     (3): " + barcosAgreagos[2]);
+           textDestructor.setText("Destructor    (2): " + barcosAgreagos[3]);
     }
 
     public int getInputX() {
@@ -137,9 +137,13 @@ public class VistaConfiguracion extends javax.swing.JPanel {
         botonLimpiarTablero = new javax.swing.JButton();
         botonComenzar = new javax.swing.JButton();
         botonAtras = new javax.swing.JButton();
+        fondinfe = new javax.swing.JLabel();
         panelNorte = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         textNombre = new javax.swing.JLabel();
         textContadorErrores = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        fondo_sup = new javax.swing.JLabel();
         panelCenter = new javax.swing.JPanel();
         panelOpciones = new javax.swing.JPanel();
         btnHelp = new javax.swing.JButton();
@@ -154,78 +158,168 @@ public class VistaConfiguracion extends javax.swing.JPanel {
         textY = new javax.swing.JLabel();
         inputY = new javax.swing.JTextField();
         botonAgregar = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(1080, 600));
         setLayout(new java.awt.BorderLayout());
 
-        panelSur.setLayout(new java.awt.GridLayout(1, 0));
+        panelSur.setOpaque(false);
+        panelSur.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        botonLimpiarTablero.setText("Limpiar Tablero");
-        panelSur.add(botonLimpiarTablero);
+        botonLimpiarTablero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_limpiar-tablero.png"))); // NOI18N
+        botonLimpiarTablero.setBorder(null);
+        botonLimpiarTablero.setBorderPainted(false);
+        botonLimpiarTablero.setContentAreaFilled(false);
+        botonLimpiarTablero.setFocusPainted(false);
+        botonLimpiarTablero.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_limpiar-tablero (2).png"))); // NOI18N
+        botonLimpiarTablero.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_limpiar-tablero (1).png"))); // NOI18N
+        panelSur.add(botonLimpiarTablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 230, 60));
 
-        botonComenzar.setText("Comenzar");
-        panelSur.add(botonComenzar);
+        botonComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_comenzar.png"))); // NOI18N
+        botonComenzar.setBorder(null);
+        botonComenzar.setBorderPainted(false);
+        botonComenzar.setContentAreaFilled(false);
+        botonComenzar.setFocusPainted(false);
+        botonComenzar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_comenzar (2).png"))); // NOI18N
+        botonComenzar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_comenzar (1).png"))); // NOI18N
+        panelSur.add(botonComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 220, 60));
 
-        botonAtras.setText("Atras");
-        panelSur.add(botonAtras);
+        botonAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_atras.png"))); // NOI18N
+        botonAtras.setBorder(null);
+        botonAtras.setBorderPainted(false);
+        botonAtras.setContentAreaFilled(false);
+        botonAtras.setFocusPainted(false);
+        botonAtras.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_atras (2).png"))); // NOI18N
+        botonAtras.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_atras (1).png"))); // NOI18N
+        panelSur.add(botonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, 250, 60));
+
+        fondinfe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inferior.png"))); // NOI18N
+        panelSur.add(fondinfe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 60));
 
         add(panelSur, java.awt.BorderLayout.PAGE_END);
 
-        panelNorte.setLayout(new java.awt.GridLayout(1, 0));
+        panelNorte.setOpaque(false);
+        panelNorte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Nombre Jugador: ");
+        panelNorte.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 200, 50));
+
+        textNombre.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        textNombre.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         textNombre.setText("Nombre");
-        panelNorte.add(textNombre);
+        panelNorte.add(textNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 100, 50));
 
+        textContadorErrores.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         textContadorErrores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textContadorErrores.setText("Contador Errores");
-        panelNorte.add(textContadorErrores);
+        panelNorte.add(textContadorErrores, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 190, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iconojuga.png"))); // NOI18N
+        panelNorte.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, 50));
+
+        fondo_sup.setBackground(new java.awt.Color(204, 255, 255));
+        fondo_sup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/superio.png"))); // NOI18N
+        panelNorte.add(fondo_sup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 50));
 
         add(panelNorte, java.awt.BorderLayout.PAGE_START);
 
+        panelCenter.setOpaque(false);
         panelCenter.setLayout(new java.awt.BorderLayout());
 
-        panelOpciones.setLayout(new java.awt.GridLayout(12, 1));
+        panelOpciones.setOpaque(false);
+        panelOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnHelp.setText("help");
-        panelOpciones.add(btnHelp);
+        btnHelp.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
+        btnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_ayuda.png"))); // NOI18N
+        btnHelp.setText("Ayuda");
+        btnHelp.setBorder(null);
+        btnHelp.setBorderPainted(false);
+        btnHelp.setContentAreaFilled(false);
+        btnHelp.setFocusPainted(false);
+        btnHelp.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_ayuda(2).png"))); // NOI18N
+        btnHelp.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_ayuda(1).png"))); // NOI18N
+        panelOpciones.add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 80, 41));
 
-        textPortaAviones.setText("Porta Aviones(5)");
-        panelOpciones.add(textPortaAviones);
+        textPortaAviones.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
+        textPortaAviones.setText("Porta Aviones (5)");
+        panelOpciones.add(textPortaAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 200, 40));
 
-        textAcorazado.setText("Acorazado(4)");
-        panelOpciones.add(textAcorazado);
+        textAcorazado.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
+        textAcorazado.setText("Acorazado     (4)");
+        panelOpciones.add(textAcorazado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 190, 41));
 
-        textSubmarino.setText("Submarino(3)");
-        panelOpciones.add(textSubmarino);
+        textSubmarino.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
+        textSubmarino.setText("Submarino     (3)");
+        panelOpciones.add(textSubmarino, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 190, 41));
 
-        textDestructor.setText("Destructor(2)");
-        panelOpciones.add(textDestructor);
+        textDestructor.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
+        textDestructor.setText("Destructor    (2)");
+        panelOpciones.add(textDestructor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 190, 41));
 
-        tipoBarco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Porta Aviones", "Acorazado", "Submarino", "Destructor" }));
-        panelOpciones.add(tipoBarco);
+        tipoBarco.setBackground(new java.awt.Color(19, 79, 92));
+        tipoBarco.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
+        tipoBarco.setForeground(new java.awt.Color(255, 255, 255));
+        tipoBarco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Port Aviones", "Acorazado", "Submarino", "Destructor" }));
+        tipoBarco.setFocusable(false);
+        panelOpciones.add(tipoBarco, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 150, 30));
 
+        selectOrientacion.setBackground(new java.awt.Color(19, 79, 92));
+        selectOrientacion.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
+        selectOrientacion.setForeground(new java.awt.Color(255, 255, 255));
         selectOrientacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vertical", "Horizontal" }));
+        selectOrientacion.setFocusable(false);
         selectOrientacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectOrientacionActionPerformed(evt);
             }
         });
-        panelOpciones.add(selectOrientacion);
+        panelOpciones.add(selectOrientacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 150, 30));
 
+        textX.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
         textX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textX.setText("Coordenada X");
-        panelOpciones.add(textX);
-        panelOpciones.add(inputX);
+        panelOpciones.add(textX, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 120, 41));
+        panelOpciones.add(inputX, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 110, 30));
 
+        textY.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
         textY.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textY.setText("Coordenada Y");
-        panelOpciones.add(textY);
-        panelOpciones.add(inputY);
+        panelOpciones.add(textY, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 120, 30));
 
-        botonAgregar.setText("Agregar");
-        panelOpciones.add(botonAgregar);
+        inputY.setPreferredSize(new java.awt.Dimension(10, 20));
+        panelOpciones.add(inputY, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 110, 30));
+
+        botonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_agregar.png"))); // NOI18N
+        botonAgregar.setBorder(null);
+        botonAgregar.setBorderPainted(false);
+        botonAgregar.setContentAreaFilled(false);
+        botonAgregar.setFocusPainted(false);
+        botonAgregar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_agregar (2).png"))); // NOI18N
+        botonAgregar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_agregar (1).png"))); // NOI18N
+        panelOpciones.add(botonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 140, 40));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.png"))); // NOI18N
+        panelOpciones.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 490));
 
         panelCenter.add(panelOpciones, java.awt.BorderLayout.LINE_START);
+
+        jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(230, 100));
+        jPanel1.setRequestFocusEnabled(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/geneal.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 490));
+
+        panelCenter.add(jPanel1, java.awt.BorderLayout.LINE_END);
 
         add(panelCenter, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -241,8 +335,16 @@ public class VistaConfiguracion extends javax.swing.JPanel {
     private javax.swing.JButton botonComenzar;
     private javax.swing.JButton botonLimpiarTablero;
     private javax.swing.JButton btnHelp;
+    private javax.swing.JLabel fondinfe;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JLabel fondo_sup;
     private javax.swing.JTextField inputX;
     private javax.swing.JTextField inputY;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelCenter;
     private javax.swing.JPanel panelNorte;
     private javax.swing.JPanel panelOpciones;

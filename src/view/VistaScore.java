@@ -48,6 +48,7 @@ public class VistaScore extends javax.swing.JPanel {
 
         textPuntajes.setEditable(false);
         textPuntajes.setColumns(20);
+        textPuntajes.setFont(new java.awt.Font("FreeMono", 0, 24)); // NOI18N
         textPuntajes.setRows(5);
         jScrollPane1.setViewportView(textPuntajes);
 

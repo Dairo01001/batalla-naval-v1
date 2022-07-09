@@ -15,11 +15,11 @@ public class Leer {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append(String.format("%12s %12s %12s %12s \n", "Nombre", "Puntaje", "Ataques", "Errores"));
+        sb.append(String.format("%12s %12s %12s %12s \n", "NOMBRE", "PUNTAJE", "ATAQUES", "ERRORES"));
         try (Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
                 String[] params = sc.nextLine().split(",");
-                sb.append(String.format("%12s %14s %15s %16s\n", params[0], params[1], params[2], params[3]));
+                sb.append(String.format("%12s %12s %12s %12s\n", params[0], params[1], params[2], params[3]));
             }
         }
         

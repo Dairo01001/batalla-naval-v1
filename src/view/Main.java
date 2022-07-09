@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import model.Game;
 import model.maquina.Maquina;
 import model.player.Player;
@@ -248,6 +250,14 @@ public class Main extends JFrame {
     }
 
     public static void main(String[] args) {
+        
+        Font font = new Font("FreeMono", Font.BOLD, 18);
+        
+        UIManager.put("OptionPane.messageFont", font);
+        UIManager.put("OptionPane.background", Color.CYAN);
+        UIManager.put("Panel.background", Color.CYAN);
+        UIManager.put("OptionPane.buttonFont", font);
+        
         Main ventana = new Main(); 
         ventana.pack();
         ventana.setVisible(true);

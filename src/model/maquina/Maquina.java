@@ -38,7 +38,7 @@ public class Maquina {
     }
     
     public Point atacar() {
-        return disparos.get(index++);
+        return index < disparos.size() ? disparos.get(index++) : null;
     }
     
     public void llenarTablero() {

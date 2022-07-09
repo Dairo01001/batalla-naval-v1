@@ -16,12 +16,26 @@ public class Barco {
     private final int TAMANIO;
     private int vida;
     private Point[] partes;
+    private final int orientacion;
 
     private Barco(TipoBarco tipo, int tamanio, int orientacion, Point inicio) {
         TIPO = tipo;
         TAMANIO = tamanio;
         vida = tamanio;
+        this.orientacion = orientacion;
         contruirBarco(orientacion, inicio);
+    }
+
+    public int getOrientacion() {
+        return orientacion;
+    }
+    
+    public boolean isHead(int i, int j) {
+        return getInicio().x == i && getInicio().y == j;
+    }
+    
+    public boolean isFinal(int i, int j) {
+        return getFinal().x == i && getFinal().y == j;
     }
 
     private void contruirBarco(int orientacion, Point inicio) {

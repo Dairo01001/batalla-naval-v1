@@ -128,7 +128,7 @@ public class Main extends JFrame {
                 vistaConfiguracion.setContadorErrores(game.getJugador().getErrores());
 
                 vistaJuego.setNombreJugador(game.getJugador().getNombre());
-                vistaJuego.setModelJugador(game.getJugador().getModelTablero());
+                vistaJuego.setModelJugadorBarcos(game.getJugador().getModelTablero(), game.getJugador().getTablero().getBarcos());
 
                 game.setTextLog(vistaJuego.getTextLog());
                 paneles.show(panelPrincipal, "config");
@@ -162,7 +162,7 @@ public class Main extends JFrame {
                 vistaJuego.setModelMaquina(game.getMaquina().getModelTablero());
                 
                 game.maquinaAtacaJugador();
-                vistaJuego.setModelJugador(game.getJugador().getModelTablero());
+                vistaJuego.setModelJugadorBarcos(game.getJugador().getModelTablero(), game.getJugador().getTablero().getBarcos());
                 
                 if (game.JuegoTerminado()) {
                     game.guardarPuntajes();
@@ -211,7 +211,7 @@ public class Main extends JFrame {
                 if (vistaConfiguracion.verificarEntradas()) {
                     if (game.agregarBarcosJugador(vistaConfiguracion.getBarco())) {
                         vistaConfiguracion.setBarcosAgregados(game.getJugador().getBarcosCreados());
-                        vistaConfiguracion.agregarModelo(game.getJugador().getModelTablero());
+                        vistaConfiguracion.agregarModeloBarcos(game.getJugador().getModelTablero(), game.getJugador().getTablero().getBarcos());
                     } else {
 
                         JOptionPane.showMessageDialog(panelPrincipal, "No se pudo crear el Barco!");

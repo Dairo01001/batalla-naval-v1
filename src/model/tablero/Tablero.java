@@ -22,6 +22,10 @@ public class Tablero {
         }
     }
 
+    public ArrayList<Barco> getBarcos() {
+        return barcos;
+    }
+
     public void limpiarTablero() {
         barcos.clear();
         for (int i = 0; i < TAMANIO; i++) {

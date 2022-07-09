@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Point;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import model.barco.Barco;
 import model.barco.TipoBarco;
@@ -30,6 +31,10 @@ public class VistaConfiguracion extends javax.swing.JPanel {
         tablero.setModelJugador(tableroJugador);
     }
 
+    public void agregarModeloBarcos(TipoCeldaTablero[][] tableroJugador, ArrayList<Barco> barcos) {
+        tablero.setModelJugadorBarcos(tableroJugador, barcos);
+    }
+
     public VistaTablero getTablero() {
         return tablero;
     }
@@ -47,10 +52,10 @@ public class VistaConfiguracion extends javax.swing.JPanel {
     }
 
     public void limpiarTablero() {
-        textPortaAviones.setText("Porta Aviones(5): " + Barco.CANTIDAD_POR_BARCO);
-        textAcorazado.setText("Acorazado(4): " + Barco.CANTIDAD_POR_BARCO);
-        textSubmarino.setText("Submarino(3): " + Barco.CANTIDAD_POR_BARCO);
-        textDestructor.setText("Destructor(2): " + Barco.CANTIDAD_POR_BARCO);
+        textPortaAviones.setText("" + Barco.CANTIDAD_POR_BARCO);
+        textAcorazado.setText("" + Barco.CANTIDAD_POR_BARCO);
+        textSubmarino.setText("" + Barco.CANTIDAD_POR_BARCO);
+        textDestructor.setText("" + Barco.CANTIDAD_POR_BARCO);
         inputX.setText("");
         inputY.setText("");
         tablero.limpiarTablero();
@@ -115,10 +120,10 @@ public class VistaConfiguracion extends javax.swing.JPanel {
     }
 
     public void setBarcosAgregados(int[] barcosAgreagos) {
-        textPortaAviones.setText("Porta Aviones (5): " + barcosAgreagos[0]);
-           textAcorazado.setText("Acorazado     (4): " + barcosAgreagos[1]);
-           textSubmarino.setText("Submarino     (3): " + barcosAgreagos[2]);
-           textDestructor.setText("Destructor    (2): " + barcosAgreagos[3]);
+        textPortaAviones.setText("" + barcosAgreagos[0]);
+        textAcorazado.setText("" + barcosAgreagos[1]);
+        textSubmarino.setText("" + barcosAgreagos[2]);
+        textDestructor.setText("" + barcosAgreagos[3]);
     }
 
     public int getInputX() {
@@ -158,6 +163,10 @@ public class VistaConfiguracion extends javax.swing.JPanel {
         textY = new javax.swing.JLabel();
         inputY = new javax.swing.JTextField();
         botonAgregar = new javax.swing.JButton();
+        imgPorta = new javax.swing.JLabel();
+        imgAcorazado = new javax.swing.JLabel();
+        imgSubmarino = new javax.swing.JLabel();
+        imgDestructor = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -246,20 +255,20 @@ public class VistaConfiguracion extends javax.swing.JPanel {
         panelOpciones.add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 80, 41));
 
         textPortaAviones.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
-        textPortaAviones.setText("Porta Aviones (5)");
-        panelOpciones.add(textPortaAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 200, 40));
+        textPortaAviones.setText("1");
+        panelOpciones.add(textPortaAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 30, 40));
 
         textAcorazado.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
-        textAcorazado.setText("Acorazado     (4)");
-        panelOpciones.add(textAcorazado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 190, 41));
+        textAcorazado.setText("1");
+        panelOpciones.add(textAcorazado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 30, 41));
 
         textSubmarino.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
-        textSubmarino.setText("Submarino     (3)");
-        panelOpciones.add(textSubmarino, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 190, 41));
+        textSubmarino.setText("1");
+        panelOpciones.add(textSubmarino, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 30, 41));
 
         textDestructor.setFont(new java.awt.Font("DialogInput", 1, 15)); // NOI18N
-        textDestructor.setText("Destructor    (2)");
-        panelOpciones.add(textDestructor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 190, 41));
+        textDestructor.setText("1");
+        panelOpciones.add(textDestructor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 30, 41));
 
         tipoBarco.setBackground(new java.awt.Color(19, 79, 92));
         tipoBarco.setFont(new java.awt.Font("DialogInput", 1, 12)); // NOI18N
@@ -303,6 +312,18 @@ public class VistaConfiguracion extends javax.swing.JPanel {
         botonAgregar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/button_agregar (1).png"))); // NOI18N
         panelOpciones.add(botonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 140, 40));
 
+        imgPorta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/portaAbiones.png"))); // NOI18N
+        panelOpciones.add(imgPorta, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 40, 250, 50));
+
+        imgAcorazado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/acorazado.png"))); // NOI18N
+        panelOpciones.add(imgAcorazado, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 90, -1, -1));
+
+        imgSubmarino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/submarino.png"))); // NOI18N
+        panelOpciones.add(imgSubmarino, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        imgDestructor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/destructor.png"))); // NOI18N
+        panelOpciones.add(imgDestructor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.png"))); // NOI18N
         panelOpciones.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 490));
 
@@ -338,6 +359,10 @@ public class VistaConfiguracion extends javax.swing.JPanel {
     private javax.swing.JLabel fondinfe;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel fondo_sup;
+    private javax.swing.JLabel imgAcorazado;
+    private javax.swing.JLabel imgDestructor;
+    private javax.swing.JLabel imgPorta;
+    private javax.swing.JLabel imgSubmarino;
     private javax.swing.JTextField inputX;
     private javax.swing.JTextField inputY;
     private javax.swing.JLabel jLabel1;

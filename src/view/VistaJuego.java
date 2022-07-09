@@ -2,9 +2,11 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import model.barco.Barco;
 import model.tablero.Tablero;
 import model.tablero.TipoCeldaTablero;
 
@@ -45,6 +47,10 @@ public class VistaJuego extends javax.swing.JPanel {
     
     public void setModelJugador(TipoCeldaTablero [][] tableroJugador) {
         this.tableroJugador.setModelJugador(tableroJugador);
+    }
+    
+    public void setModelJugadorBarcos(TipoCeldaTablero[][] modelTablero, ArrayList<Barco> barcos) {
+        tableroJugador.setModelJugadorBarcos(modelTablero, barcos);
     }
     
     public void setKeyListener(KeyListener k) {

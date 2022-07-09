@@ -82,9 +82,12 @@ public class Game {
     public void maquinaAtacaJugador() {
         Point ataque = maquina.atacar();
         textLog.append("Maquina ataca en [" + ataque.y + "," + ataque.x + "]\n");
-        while (ataque != null && jugador.getTablero().hacerDisparo(ataque.x, ataque.y)) { 
+        while (ataque != null && jugador.getTablero().hacerDisparo(ataque.x, ataque.y)) {
             ataque = maquina.atacar();
-            textLog.append("Maquina ataca en [" + ataque.y + "," + ataque.x + "]\n");
+
+            if (ataque != null) {
+                textLog.append("Maquina ataca en [" + ataque.y + "," + ataque.x + "]\n");
+            }
         }
     }
 

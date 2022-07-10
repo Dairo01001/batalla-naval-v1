@@ -5,8 +5,8 @@
         <group>
             <file>file:/home/dairo/NetBeansProjects/BatallaNaval_V1/src/utils/Leer.java</file>
             <file>file:/home/dairo/NetBeansProjects/BatallaNaval_V1/src/model/Game.java</file>
-            <file>file:/home/dairo/NetBeansProjects/BatallaNaval_V1/src/utils/Open.java</file>
-            <file>file:/home/dairo/NetBeansProjects/BatallaNaval_V1/src/model/maquina/Maquina.java</file>
+            <file>file:/home/dairo/NetBeansProjects/BatallaNaval_V1/src/model/Temporizador.java</file>
+            <file>file:/home/dairo/NetBeansProjects/BatallaNaval_V1/src/data/puntaje.txt</file>
             <file>file:/home/dairo/NetBeansProjects/BatallaNaval_V1/src/view/Main.java</file>
             <file>file:/home/dairo/NetBeansProjects/BatallaNaval_V1/src/view/VistaScore.java</file>
         </group>

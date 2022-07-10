@@ -52,4 +52,9 @@ public class Temporizador extends Thread {
             display.setText("Tiempo: " + minutos + ":" + segundos);
         }
     }
+    
+    @Override
+    public String toString() {
+        return minutos + ":" + segundos + " m:s";
+    }
 }

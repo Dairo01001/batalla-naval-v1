@@ -107,6 +107,6 @@ public class Game {
     }
 
     public void guardarPuntajes() {
-        Write.writeLineScore(jugador.getFormatoPuntaje() + "\n");
+        Write.writeLineScore(jugador.getFormatoPuntaje() + "," + temporizador.toString() + "\n");
     }
 }
